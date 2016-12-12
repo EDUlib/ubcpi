@@ -39,7 +39,7 @@
                         <textarea class="input setting-input" name="question_text" id="pi-question-text" ng-model="esc.data.question_text.text" ng-model-options="{ debounce: 500 }"></textarea>
 
                         <div class="add-image-inputs" ng-if="esc.data.question_text.image_show_fields">
-                        	<label class="label setting-label pi-setting-label" for="question-text-image-url">Image URL<br /><span class="tip setting-help">Upload a file first using Content > Files &amp; Uploads. Then copy the 'Studio URL'. Paste that into the text field here.</span></label>
+                        	<label class="label setting-label pi-setting-label" for="question-text-image-url">Image URL<br /><span class="tip setting-help">Téléversez un fichier en utilisant Contenu > Fichiers &amp; téléversements. Copier ensuite le 'URL Studio' résultant dans le champ texte ici.</span></label>
                         	<input type="text" name="question-text-image-url" id="question-text-image-url" class="input setting-input pi-options image-input-url" ng-model="esc.data.question_text.image_url" ng-model-options="{ debounce: 500 }" required/> <br />
                         	<label class="label setting-label pi-setting-label" for="question-text-image-position">Image Position<br /><span class="tip setting-help">Choose if you want the image to appear above or below the question.</span></label>
                         	<select name="question-text-image-position" id="question-text-image-position" ng-model="esc.data.question_text.image_position" ng-options="position as desc for (position, desc) in esc.image_position_locations"></select><br />
@@ -180,11 +180,11 @@
                 <ul>
                     <li class="action-item validation-tip"><a href="" class="save-disabled-tooltip" data-lang="af" data-value="" ng-show="piForm.$errors.seed_error" data-tooltip="Vous ne pouvez sauvegarder en raison d'erreurs : {{piForm.$errors.seed_error}}"><i class="icon fa fa-question-circle"></i></a></li>
                     <li class="action-item">
-                        <input id="pi-submit-options" type="submit" class="button action-primary save-button" name="pi-submit-options" value="Save" ng-disabled="esc.data.options.length == 0 || piForm.$invalid || piForm.$pending"/>
+                        <input id="pi-submit-options" type="submit" class="button action-primary save-button" name="pi-submit-options" value="Sauvegarder" ng-disabled="esc.data.options.length == 0 || piForm.$invalid || piForm.$pending"/>
                     </li>
 
                     <li class="action-item">
-                        <a href="" class="button action-cancel cancel-button" name="pi-cancel-options">Cancel</a>
+                        <a href="" class="button action-cancel cancel-button" name="pi-cancel-options">Annuler</a>
                     </li>
                 </ul>
 
