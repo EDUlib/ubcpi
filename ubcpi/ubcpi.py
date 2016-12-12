@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 """A Peer Instruction tool for edX by the University of British Columbia."""
 import os
 import random
@@ -56,14 +59,14 @@ def validate_options(options):
     errors = []
 
     if int(options['rationale_size']['min']) < 1:
-        errors.append('Minimum Characters')
+        errors.append('Caractères Minimum')
     if int(options['rationale_size']['max']) < 0 or int(options['rationale_size']['max']) > MAX_RATIONALE_SIZE:
-        errors.append('Maximum Characters')
-    if not any(error in ['Minimum Characters', 'Maximum Characters'] for error in errors) \
+        errors.append('Caractères Maximum')
+    if not any(error in ['Caractères Minimum', 'Caractères Maximum'] for error in errors) \
             and int(options['rationale_size']['max']) <= int(options['rationale_size']['min']):
         errors += ['Minimum Characters', 'Maximum Characters']
     if options['algo']['num_responses'] != '#' and int(options['algo']['num_responses']) < 0:
-        errors.append('Number of Responses')
+        errors.append('Nombre de réponses')
 
     if not errors:
         return None
@@ -117,25 +120,6 @@ class MissingDataFetcherMixin:
         )
         return student_item_dict
 
-    def get_user_role(self):
-        """Create a student_item_dict from our surrounding context.
-
-        See also: submissions.api for details.
-
-        Args:
-            anonymous_user_id(str): A unique anonymous_user_id for (user, course) pair.
-        Returns:
-            (dict): The student item associated with this XBlock instance. This
-                includes the student id, item id, and course id.
-        """
-
-        # This is not the real way course_ids should work, but this is a
-        # temporary expediency for LMS integration
-        if hasattr(self, "xmodule_runtime"):
-            return self.xmodule_runtime.get_user_role()
-        else:
-            return 'student' 
-
     def _serialize_opaque_key(self, key):
         """
         Gracefully handle opaque keys, both before and after the transition.
@@ -177,54 +161,54 @@ class PeerInstructionXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     event_namespace = 'ubc.peer_instruction'
 
     # the display name that used on the interface
-    display_name = String(default=_("Peer Rationale Reflection Question"))
+    display_name = String(default=_("Enseignement pas les pairs"))
 
     question_text = Dict(
-        default={'text': _('<p>Where does most of the mass in a fully grown tree originate?</p>'),
+        default={'text': _('<p>La majorité de la masse d\'un arbre mûr provient de?</p>'),
                  'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''},
         scope=Scope.content,
-        help=_("The question the students see. This question appears above the possible answers which you set below. "
-             "You can use text, an image or a combination of both. If you wish to add an image to your question, press "
-             "the 'Add Image' button.")
+        help=_("La question que les étudiants voient. Cette question apparait au-dessus des réponses possibles que vous ajouterez plus bas. "
+             "Vous pouvez utiliser du texte, une image ou une combinaison des deux. Si vous désirez ajouter une image à votre question, appuyez sur "
+             "le bouton 'Ajouter une image'.")
     )
 
     options = List(
         default=[
             {'text': _('Air'), 'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''},
-            {'text': _('Soil'), 'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''},
-            {'text': _('Water'), 'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''}
+            {'text': _('Sol'), 'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''},
+            {'text': _('Eau'), 'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''}
         ],
         scope=Scope.content,
-        help="The possible options from which the student may select",
+        help="Les choix de réponses possibles que peuvent choisir les étudiants",
     )
 
     rationale_size = Dict(
         default={'min': 1, 'max': MAX_RATIONALE_SIZE}, scope=Scope.content,
-        help=_("The minimum and maximum number of characters a student is allowed for their rationale."),
+        help=_("Le nombre minimum et maximum de caractères pouvant être utilisé pour le raisonnement étudiant."),
     )
 
     correct_answer = Integer(
         default=0, scope=Scope.content,
-        help=_("The correct option for the question"),
+        help=_("La bonne réponse pour cette question"),
     )
 
     correct_rationale = Dict(
-        default={'text': _("Photosynthesis")}, scope=Scope.content,
-        help=_("The feedback for student for the correct answer"),
+        default={'text': _("Photosynthèse")}, scope=Scope.content,
+        help=_("La rétroaction de l'étudiant pour la bonne réponse"),
     )
 
     stats = Dict(
         default={'original': {}, 'revised': {}}, scope=Scope.user_state_summary,
-        help=_("Overall stats for the instructor"),
+        help=_("Statistiques globales pour l'enseignant"),
     )
     seeds = List(
         default=[
-            {'answer': 0, 'rationale': _('Tree gets carbon from air.')},
-            {'answer': 1, 'rationale': _('Tree gets minerals from soil.')},
-            {'answer': 2, 'rationale': _('Tree drinks water.')}
+            {'answer': 0, 'rationale': _('L\'arbre obtient le carbone de l\'air.')},
+            {'answer': 1, 'rationale': _('L\'arbre obtient les minéraux du sol.')},
+            {'answer': 2, 'rationale': _('L\'arbre boit de l\'eau.')}
         ],
         scope=Scope.content,
-        help=_("Instructor configured examples to give to students during the revise stage."),
+        help=_("Exemples configurés par enseignant afin de donner aux étudiants lors de étape de révision."),
     )
 
     # sys_selected_answers dict format:
@@ -238,12 +222,12 @@ class PeerInstructionXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     # }
     sys_selected_answers = Dict(
         default={}, scope=Scope.user_state_summary,
-        help=_("System selected answers to give to students during the revise stage."),
+        help=_("Réponses sélectionnées par le système afin de donner aux étudiants lors de étape de révision."),
     )
 
     algo = Dict(
         default={'name': 'simple', 'num_responses': '#'}, scope=Scope.content,
-        help=_("The algorithm for selecting which answers to be presented to students"),
+        help=_("Algorithme pour sélectionner quelles réponses à présenter aux étudiants"),
     )
 
     # Declare that we are not part of the grading System. Disabled for now as for the concern about the loading
@@ -263,11 +247,11 @@ class PeerInstructionXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     # required field for LMS progress page
     weight = Float(
         default=1,
-        display_name=_("Problem Weight"),
-        help=_(("Defines the number of points each problem is worth. "
-              "If the value is not set, the problem is worth the sum of the "
-              "option point values.")),
-        values={"min": 0, "step": .1},
+        display_name=_("Poids de l'exercice"),
+        help=_(("Définit le nombre de points pour chaque exercice. "
+              "Si non défini, l'exercice vaut la somme de toutes "
+              "les valeurs de points.")),
+        values={"min": 0, "étape": .1},
         scope=Scope.settings
     )
 
@@ -305,8 +289,8 @@ class PeerInstructionXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
                 'random': self.ugettext('Completely random selection from the response pool.')
             },
             'image_position_locations': {
-                'above': self.ugettext('Appears above'),
-                'below': self.ugettext('Appears below')
+                'above': self.ugettext('Apparait au-dessus'),
+                'below': self.ugettext('Apparait au-dessous')
             },
             'seeds': self.seeds,
         })
@@ -465,7 +449,6 @@ class PeerInstructionXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
             'weight': self.weight,
             'options': options,
             'rationale_size': self.rationale_size,
-            'user_role': self.get_user_role(),
             'all_status': {'NEW': STATUS_NEW, 'ANSWERED': STATUS_ANSWERED, 'REVISED': STATUS_REVISED},
         }
         if answers.has_revision(0) and not answers.has_revision(1):
@@ -650,7 +633,7 @@ class PeerInstructionXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
         """A canned scenario for display in the workbench."""
         return [
             (
-                "UBC Peer Rationale Reflection: Basic",
+                "UBC Peer Instruction: Basic",
                 cls.resource_string('static/xml/basic_scenario.xml')
             ),
         ]
