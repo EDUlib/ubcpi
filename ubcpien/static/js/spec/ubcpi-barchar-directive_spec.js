@@ -1,4 +1,4 @@
-describe('UBCPI', function () {
+describe('UBCPIEN', function () {
     beforeEach(module(function($provide) {
         var mockConfig = {
             data: {},
@@ -11,7 +11,7 @@ describe('UBCPI', function () {
                 return elem;
             };
         });
-    }, 'UBCPI'));
+    }, 'UBCPIEN'));
 
 
     describe('barchart-directive', function () {

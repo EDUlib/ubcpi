@@ -1,4 +1,4 @@
-angular.module('UBCPI').
+angular.module('UBCPIEN').
     directive('piAnswerResult', function(){
         return {
             restrict: 'E',

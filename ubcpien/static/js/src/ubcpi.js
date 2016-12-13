@@ -1,4 +1,4 @@
-angular.module('UBCPI', ['ngSanitize', 'ngCookies'])
+angular.module('UBCPIEN', ['ngSanitize', 'ngCookies'])
     .config(['$httpProvider', function($httpProvider) {
         // register an http interceptor to transform template urls. Because $rootScope
         // is not available in config phase, it can't be injected to config function. But
@@ -244,8 +244,8 @@ function PeerInstructionXBlock(runtime, element, data) {
     };
 
     // inject xblock notification
-    angular.module('UBCPI').value('notify', notify);
+    angular.module('UBCPIEN').value('notify', notify);
 
     // bootstrap our app manually
-    angular.bootstrap($element, ['UBCPI'], {strictDi: true});
+    angular.bootstrap($element, ['UBCPIEN'], {strictDi: true});
 }

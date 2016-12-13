@@ -1,6 +1,6 @@
 'use strict';
 
-describe('UBCPI module', function () {
+describe('UBCPIEN module', function () {
     var mockNotify, mockConfig;
 
     beforeEach(module(function($provide) {
@@ -17,7 +17,7 @@ describe('UBCPI module', function () {
             };
         });
         $provide.value('notify', mockNotify);
-    }, 'UBCPI'));
+    }, 'UBCPIEN'));
 
     describe('Integer directive', function () {
         var $compile,
@@ -441,13 +441,13 @@ describe('PeerInstructionXBlock function', function() {
 
     it('should setup angular module dependencies', function() {
         expect(angular.module.calls.count()).toBe(1);
-        expect(angular.module.calls.argsFor(0)).toEqual(['UBCPI']);
+        expect(angular.module.calls.argsFor(0)).toEqual(['UBCPIEN']);
         expect(mockModule.value.calls.count()).toBe(1);
         expect(mockModule.value.calls.argsFor(0)).toContain('notify');
     });
 
     it('should bootstrap angular app', function() {
-        expect(angular.bootstrap).toHaveBeenCalledWith($(mockElement), ['UBCPI'], {strictDi: true})
+        expect(angular.bootstrap).toHaveBeenCalledWith($(mockElement), ['UBCPIEN'], {strictDi: true})
     });
 
     it('should generate URLs using runtime', function() {

@@ -1,4 +1,4 @@
-angular.module('UBCPI').
+angular.module('UBCPIEN').
     directive('piBarchart', function(){
         return {
             restrict: 'E',
