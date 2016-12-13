@@ -167,7 +167,7 @@
 
                 <div class="detailed-solution" id="detailed-solution">
 
-                    <h2 id="correct-option-head" ng-if="options.length > rc.correct_answer">Correct Answer</h2>
+                    <h2 id="correct-option-head" ng-if="options.length > rc.correct_answer">Bonne réponser</h2>
                     <h2 id="correct-option-head" ng-if="!rc.correct_rationale.text"></h2>
                     <h2 id="correct-option-head" ng-if="options.length == rc.correct_answer && rc.correct_rationale.text">Explication de l'instructeur</h2>
 
@@ -204,7 +204,7 @@
                                 <span class="sr">Raisonnement de l'étudiant</span><i aria-hidden="true" class="icon fa fa-user"></i><span class="ubcpi-solution-your-final-rationale ubcpi-solution-rationales">"{{rc.rationale_revised}}"</span>
                             </li>
                         </ul>
-                        <p>Voici comment vos collègues de classe ont répondu à cette question <a href="#classbreakdown">below</a></p>
+                        <p>Voici comment vos collègues de classe ont répondu à cette question <a href="#classbreakdown">ci-dessous</a></p>
 
                     </div>
                 </div><!-- .detailed-solution -->
@@ -216,13 +216,13 @@
                 <a name="classbreakdown"></a>
                 <h3 class="ubcpi-class-breakdown-head">Répartition des réponses de la classe</h3>
                 <p>Voici comment vos collègues de classe ont répondu à cette question dans les rondes initiale et finale.</p>
-                <h4>Choix de réponses</h4>
+                <h4>Options de réponses</h4>
                 <div class="ubcpi-breakdown-answer-options">
 
                     <p class="ubcpi-option" data-ng-repeat="option in options track by $index">
                         <img ng-src="{{option.image_url}}" id="original-option-image-{{ $index }}" alt="{{option.image_alt}}" ng-if="option.image_position == 'above' && option.image_url" />
 
-                        <span class="ubcpi-breakdown-option-num"><i>Choix {{$index + 1}}</i></span>&nbsp;<span class="ubcpi-breakdown-correct-option" ng-if="rc.correct_answer === $index" style="font-style:italic">(correct)</span>
+                        <span class="ubcpi-breakdown-option-num"><i>Option {{$index + 1}}</i></span>&nbsp;<span class="ubcpi-breakdown-correct-option" ng-if="rc.correct_answer === $index" style="font-style:italic">(correct)</span>
                         <span ng-if="rc.correct_answer === $index" class="ubcpi-breakdown-answer-text ubcpi-show-correct">{{option.text}}</span>
                         <span ng-if="rc.correct_answer !== $index" class="ubcpi-breakdown-answer-text">{{option.text}}</span>
 
