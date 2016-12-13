@@ -180,7 +180,7 @@ class ubcpifrXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     event_namespace = 'ubc.peer_instruction'
 
     # the display name that used on the interface
-    display_name = String(default=_("Enseignement par Pierre"))
+    display_name = String(default=_("Enseignement par les pairs"))
 
     question_text = Dict(
         default={'text': _('<p>La majorité de la masse d\'un arbre mûr provient de?</p>'),
