@@ -30,24 +30,23 @@ def readme():
 
 
 setup(
-    name='prrt-xblock',
+    name='ubcpifr-xblock',
     version='0.6.0',
     description='UBC Peer Rationale Reflection XBlock',
     long_description=readme(),
     license='Affero GNU General Public License v3 (GPLv3)',
-    url="https://github.com/ubc/ubcpi",
     author="UBC CTLT",
     author_email="pan.luo@ubc.ca",
-    packages=['ubcpi'],
+    packages=['ubcpifr'],
     install_requires=[
         'XBlock',
     ],
     entry_points={
         'xblock.v1': [
-            'ubcpi = ubcpi.ubcpi:PeerInstructionXBlock',
+            'ubcpifr = ubcpifr.ubcpifr:ubcpifrXBlock',
         ]
     },
-    package_data=package_data("ubcpi", ["static", "public", "translations"]),
+    package_data=package_data("ubcpifr", ["static", "public", "translations"]),
     keywords=['edx', 'peer rationale reflection', 'ubc'],
     classifiers=[
         "Development Status :: 4 - Beta",
