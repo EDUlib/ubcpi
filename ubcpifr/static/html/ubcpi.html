@@ -189,7 +189,7 @@
                                     <span ng-if="rc.correct_answer === rc.answer_original" class="ubcpi-initial-option-text ubcpi-correct-final-answer ubcpi-show-correct">{{options[rc.answer_original].text}} </span>
                                     <span ng-if="rc.correct_answer !== rc.answer_original && rc.correct_answer !== options.length" class="ubcpi-initial-option-text ubcpi-incorrect-final-answer ubcpi-show-incorrect">{{options[rc.answer_original].text}} </span>
                                     <span ng-if="rc.correct_answer === options.length" class="ubcpi-initial-option-text ubcpi-correct-final-answer">{{options[rc.answer_original].text}} </span>
-                                    <span class="ubcpi-initial-option-num">(Option {{rc.answer_original + 1}})</span>
+                                    <span class="ubcpi-initial-option-num">(Choix {{rc.answer_original + 1}})</span>
                                 </p>
                                 <span class="sr">Raisonnement de l'étudiant</span><i aria-hidden="true" class="icon fa fa-user"></i><span class="ubcpi-solution-your-initial-rationale ubcpi-solution-rationales">"{{rc.rationale_original}}"</span>
                             </li>
@@ -199,7 +199,7 @@
                                     <span ng-if="rc.correct_answer === rc.answer_revised" class="ubcpi-initial-option-text ubcpi-correct-final-answer ubcpi-show-correct">{{options[rc.answer_revised].text}} </span>
                                     <span ng-if="rc.correct_answer !== rc.answer_revised && rc.correct_answer !== options.length" class="ubcpi-initial-option-text ubcpi-incorrect-final-answer ubcpi-show-incorrect">{{options[rc.answer_revised].text}} </span>
                                     <span ng-if="rc.correct_answer === options.length" class="ubcpi-initial-option-text ubcpi-correct-final-answer">{{options[rc.answer_revised].text}} </span>
-                                    <span class="ubcpi-initial-option-num">(Option {{rc.answer_revised + 1}})</span>
+                                    <span class="ubcpi-initial-option-num">(Choix {{rc.answer_revised + 1}})</span>
                                 </p>
                                 <span class="sr">Raisonnement de l'étudiant</span><i aria-hidden="true" class="icon fa fa-user"></i><span class="ubcpi-solution-your-final-rationale ubcpi-solution-rationales">"{{rc.rationale_revised}}"</span>
                             </li>
@@ -216,13 +216,13 @@
                 <a name="classbreakdown"></a>
                 <h3 class="ubcpi-class-breakdown-head">Répartition des réponses de la classe</h3>
                 <p>Voici comment vos collègues de classe ont répondu à cette question dans les rondes initiale et finale.</p>
-                <h4>Options de réponses</h4>
+                <h4>Choix de réponses</h4>
                 <div class="ubcpi-breakdown-answer-options">
 
                     <p class="ubcpi-option" data-ng-repeat="option in options track by $index">
                         <img ng-src="{{option.image_url}}" id="original-option-image-{{ $index }}" alt="{{option.image_alt}}" ng-if="option.image_position == 'above' && option.image_url" />
 
-                        <span class="ubcpi-breakdown-option-num"><i>Option {{$index + 1}}</i></span>&nbsp;<span class="ubcpi-breakdown-correct-option" ng-if="rc.correct_answer === $index" style="font-style:italic">(bonne réponse)</span>
+                        <span class="ubcpi-breakdown-option-num"><i>Choix {{$index + 1}}</i></span>&nbsp;<span class="ubcpi-breakdown-correct-option" ng-if="rc.correct_answer === $index" style="font-style:italic">(bonne réponse)</span>
                         <span ng-if="rc.correct_answer === $index" class="ubcpi-breakdown-answer-text ubcpi-show-correct">{{option.text}}</span>
                         <span ng-if="rc.correct_answer !== $index" class="ubcpi-breakdown-answer-text">{{option.text}}</span>
 

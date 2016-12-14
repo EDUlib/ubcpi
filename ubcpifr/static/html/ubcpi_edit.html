@@ -108,7 +108,7 @@
                             <label class="label setting-label pi-setting-label" for="pi-option-correct" aria-describedby="pi-option-correct-tip">Bonne réponse</label>
                             <span id="pi-option-correct-tip" class="tip setting-help">Choisissez la réponse que vous croyez être correcte.</span>
                         </div>
-                        <select name="pi-option-correct" id="pi-option-correct" ng-model="esc.data.correct_answer" ng-model-options="{ debounce: 500 }" ng-options="esc.data.options.indexOf(option) as ('Option ' + (esc.data.options.indexOf(option) +1) ) for option in esc.data.options" required></select>
+                        <select name="pi-option-correct" id="pi-option-correct" ng-model="esc.data.correct_answer" ng-model-options="{ debounce: 500 }" ng-options="esc.data.options.indexOf(option) as ('Choix ' + (esc.data.options.indexOf(option) +1) ) for option in esc.data.options" required></select>
                     </div>
                     <div class="wrapper-comp-setting pi-wrapper-comp-setting">
                         <div class="pi-label-and-hint">
@@ -150,7 +150,7 @@
                                 <label class="label setting-label pi-setting-label" for="pi-option-seeded-{{$index}}" aria-describedby="pi-option-seeded-{{$index}}-tip">Exemple de réponse {{$index + 1}}</label>
                                 <span id="pi-option-seeded-{{$index}}-tip" class="tip setting-help">Choisissez la réponse.</span>
                             </div>
-                            <select name="pi-option-seeded-{{$index}}" id="pi-option-seeded-{{$index}}" ng-model="esc.data.seeds[$index].answer" ng-options="esc.data.options.indexOf(option) as ('Option ' + (esc.data.options.indexOf(option) +1) ) for option in esc.data.options" required></select>
+                            <select name="pi-option-seeded-{{$index}}" id="pi-option-seeded-{{$index}}" ng-model="esc.data.seeds[$index].answer" ng-options="esc.data.options.indexOf(option) as ('Choix ' + (esc.data.options.indexOf(option) +1) ) for option in esc.data.options" required></select>
                             <a href="" class="remove-action remove-setting" aria-label="Enlever seed" data-lang="af" data-value="" ng-click="esc.deleteSeed($index)" data-tooltip="Enlever seed"><i class="icon fa fa-times-circle"></i><span class="sr">Enlever</span></a>
                             <div class="pi-label-and-hint pi-repeater">
                                 <label class="label setting-label pi-setting-label" for="pi-seed-{{$index}}">Explication</label>
