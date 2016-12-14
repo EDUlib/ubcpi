@@ -22,8 +22,8 @@ angular.module('UBCPIFR').
                     for (var i = 0; i < scope.options.length; i++) {
                         data.push({
                             frequency: i in stats ? stats[i] : 0,
-                            label: 'Option ' + (i + 1) + (scope.correct == i ? ' (correct)' : ''),
-                            class: 'ubcpibar' +  (scope.correct == i ? ' correct-answer' : '')
+                            label: 'Choix ' + (i + 1) + (scope.correct == i ? ' (bonne réponse)' : ''),
+                            class: 'ubcpibar' +  (scope.correct == i ? ' bonne réponse' : '')
                         });
                     }
 

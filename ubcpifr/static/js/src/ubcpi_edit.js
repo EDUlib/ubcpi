@@ -67,7 +67,7 @@ angular.module("ubcpi_edit", ['ngMessages', 'ngSanitize', 'ngCookies'])
                         options.push("n/a");
                     else {
                         var option = i+1;
-                        options.push("Option " + option);
+                        options.push("Choix " + option);
                     }
                 }
                 return options;
