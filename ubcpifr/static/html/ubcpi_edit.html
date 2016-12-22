@@ -8,8 +8,8 @@
 
                 <li class="ubcpi-pi-intro">
                     <p><strong>Enseignement par les pairs</strong></p>
-                    <p>L'enseignement par les pairs permet aux étudiants d'avoir une interaction avec les autres étudiants tout en répondant à une question à choix multiples. Les étudiants complètes ces exercies en trois étapes.</p>
-                    <p>Premièrement, l'étudiant répond à une question à choix multiples et fournit un raisonnement pour sa réponse. Ensuite, l'étudiant voit le raisonnement fournit par un autre étudiant pour chacune des réponses possibles. Après avoir pris connaissance de ceux-ci, l'étudiant peut faire une révision et resoumettre une nouvelle réponse et un nouveau raisonnement. Finalement, l'étudiant verra la bonne réponse et le raisonnement que vous aurez fournit pour celle-ci.</p>
+                    <p>L'enseignement par les pairs permet aux étudiants d'avoir une interaction avec les autres étudiants tout en répondant à une question à choix multiples. Les étudiants complètes ces exercices en trois étapes.</p>
+                    <p>Premièrement, l'étudiant répond à une question à choix multiples et fournit un raisonnement pour sa réponse. Ensuite, l'étudiant voit le raisonnement fourni par un autre étudiant pour chacune des réponses possibles. Après avoir pris connaissance de ceux-ci, l'étudiant peut faire une révision et resoumettre une nouvelle réponse et un nouveau raisonnement. Finalement, l'étudiant verra la bonne réponse et le raisonnement que vous aurez fourni pour celle-ci.</p>
                 </li>
 
                 <li class="field comp-setting-entry is-set">
@@ -25,7 +25,7 @@
 
                 <li class="field comp-setting-entry is-set ubcpi-weight">
                     <div class="wrapper-comp-setting">
-                        <label class="label setting-label pi-setting-label" for="pi-display-name">Poids de l'exercice<br /><span class="tip setting-help">Définit la valeur des points pour chaque exercice. Si cette valeur n'est pas définie, l'exercice vaudra la somme des points en options.</span></label>
+                        <label class="label setting-label pi-setting-label" for="pi-display-name">Poids de l'exercice<br /><span class="tip setting-help">Définit la valeur des points pour chaque exercice. Si cette valeur n'est pas définie, l'exercice vaudra la somme des points en option.</span></label>
                         <input class="input setting-input" name="weight" id="pi-weight" ng-model="esc.data.weight" ng-model-options="{ debounce: 500 }" type="text" required />
                     </div>
                 </li>
@@ -34,16 +34,16 @@
                     <div class="wrapper-comp-setting pi-wrapper-comp-setting">
                         <div class="pi-label-and-hint">
                             <label class="label setting-label pi-setting-label" for="pi-question-text" aria-describedby="pi-question-text-tip">Texte de la question</label>
-                            <span class="tip setting-help" id="pi-question-text-tip">La question apparait au-dessus des réponses possibles que vous indiquerez ci-dessous. Vous pouvez utiliser du texte, une image ou une combinaison de deux. Si vous voulez ajouter une image à votre question, sélectionnez le bouton "Ajouter une image à la question".</span> <input type="button" class="button action-primary add-image-button" value="{{esc.data.question_text.image_show_fields ? 'Enlever une image' : 'Ajouter une image à la question'}}" ng-click="esc.image_show_fields(false)" name="add-image-button" />
+                            <span class="tip setting-help" id="pi-question-text-tip">La question apparait au-dessus des réponses possibles que vous indiquerez ci-dessous. Vous pouvez utiliser du texte, une image ou une combinaison des deux. Si vous voulez ajouter une image à votre question, sélectionnez le bouton "Ajouter une image à la question".</span> <input type="button" class="button action-primary add-image-button" value="{{esc.data.question_text.image_show_fields ? 'Enlever une image' : 'Ajouter une image à la question'}}" ng-click="esc.image_show_fields(false)" name="add-image-button" />
                         </div>
                         <textarea class="input setting-input" name="question_text" id="pi-question-text" ng-model="esc.data.question_text.text" ng-model-options="{ debounce: 500 }"></textarea>
 
                         <div class="add-image-inputs" ng-if="esc.data.question_text.image_show_fields">
-                        	<label class="label setting-label pi-setting-label" for="question-text-image-url">Image URL<br /><span class="tip setting-help">Téléversez un fichier en utilisant Contenu > Fichiers &amp; téléversements. Copier ensuite le 'URL Studio' résultant dans le champ texte ici.</span></label>
+                        	<label class="label setting-label pi-setting-label" for="question-text-image-url">Image URL<br /><span class="tip setting-help">Téléversez un fichier en utilisant Contenu > Fichiers &amp; téléversements. Copiez ensuite le 'URL Studio' résultant dans le champ texte ici.</span></label>
                         	<input type="text" name="question-text-image-url" id="question-text-image-url" class="input setting-input pi-options image-input-url" ng-model="esc.data.question_text.image_url" ng-model-options="{ debounce: 500 }" required/> <br />
-                        	<label class="label setting-label pi-setting-label" for="question-text-image-position">Image Position<br /><span class="tip setting-help">Choose if you want the image to appear above or below the question.</span></label>
+                        	<label class="label setting-label pi-setting-label" for="question-text-image-position">Position de l'image<br /><span class="tip setting-help">Choisissez si l'image doit apparaitre au-dessus ou au-dessous du texte de la question.</span></label>
                         	<select name="question-text-image-position" id="question-text-image-position" ng-model="esc.data.question_text.image_position" ng-options="position as desc for (position, desc) in esc.image_position_locations"></select><br />
-                            <label class="label setting-label pi-setting-label" for="question-text-image-alt">Image Description<br /><span class="tip setting-help">Provide alternative text - a description of the image for non-visual users. The description should provide all the information needed for someone to answer the question if the image did not load.</span></label>
+                            <label class="label setting-label pi-setting-label" for="question-text-image-alt">Description de l'image<br /><span class="tip setting-help">Texte alternatif - une description de l'image pour les usagers avec problèmes visuels. La description devrait fournir toutes les informations nécessaires pour répondre à la question si l'image n'a pas été téléchargée.</span></label>
                             <input type="text" name="question-text-image-alt" id="question-text-image-alt" class="input setting-input pi-options image-input-alt" ng-model="esc.data.question_text.image_alt"  ng-model-options="{ debounce: 500 }" required/>
                         </div>
 
@@ -84,11 +84,11 @@
                                 <a href="" class="remove-action remove-setting" aria-label="Enlever option" data-lang="af" data-value="" ng-click="esc.delete_option($index)" data-tooltip="Enlever option"><i class="icon fa fa-times-circle"></i><span class="sr">Enlever</span></a>
 
                                 <div class="add-image-inputs" ng-if="esc.data.options[$index].image_show_fields">
-                                	<label class="label setting-label pi-setting-label" for="question-text-image-url-{{$index}}">Image URL<br /><span class="tip setting-help">Upload a file using Content > Files &amp; Uploads. Then copy the 'Studio URL'. Paste that into the text field above.</span></label>
+                                	<label class="label setting-label pi-setting-label" for="question-text-image-url-{{$index}}">URL de l'image<br /><span class="tip setting-help">Téléversez un fichier en utilisant Contenu > Fichiers &amp; téléversements. Copiez ensuite le 'URL Studio' résultant dans le champ texte ici.</span></label>
                                 	<input type="text" name="question-text-image-url" id="question-text-image-url-{{$index}}" class="input setting-input pi-options image-input-url" ng-model="esc.data.options[$index].image_url" ng-model-options="{ debounce: 500 }" required/> <br />
                                 	<label class="label setting-label pi-setting-label" for="question-text-image-url-{{$index}}">Position de l'image<br /><span class="tip setting-help">Choisissez si l'image doit apparaitre au-dessus ou au-dessous du texte de la question.</span></label>
                                 	<select name="question-text-image-position" id="question-text-image-position-{{$index}}" ng-model="esc.data.options[$index].image_position" ng-options="position as desc for (position, desc) in esc.image_position_locations"></select><br />
-                                    <label class="label setting-label pi-setting-label" for="question-text-image-alt-{{$index}}">Description de l'image<br /><span class="tip setting-help">Texte alternatif - une description de l'image pour les usagers avec problèmes visuels. La description devrait fournit toutes les informations nécessaires pour répondre à la question si l'image n'a pas été téléchargée.</span></label>
+                                    <label class="label setting-label pi-setting-label" for="question-text-image-alt-{{$index}}">Description de l'image<br /><span class="tip setting-help">Texte alternatif - une description de l'image pour les usagers avec problèmes visuels. La description devrait fournir toutes les informations nécessaires pour répondre à la question si l'image n'a pas été téléchargée.</span></label>
                                 	<input type="text" name="question-text-image-alt" id="question-text-image-alt-{{$index}}" class="input setting-input pi-options image-input-alt" ng-model="esc.data.options[$index].image_alt" ng-model-options="{ debounce: 500 }" required/> <br />
                                 </div>
 
@@ -112,7 +112,7 @@
                     </div>
                     <div class="wrapper-comp-setting pi-wrapper-comp-setting">
                         <div class="pi-label-and-hint">
-                            <label class="label setting-label pi-setting-label" for="pi-correct-rationale" aria-describedby="pi-correct-rationale-tip">Explanation</label>
+                            <label class="label setting-label pi-setting-label" for="pi-correct-rationale" aria-describedby="pi-correct-rationale-tip">Explication</label>
                             <span id="pi-correct-rationale-tip" class="tip setting-help">Expliquez aux étudiants pourquoi cette réponse est la bonne réponse. Les étudiants verront la bonne réponse et votre explication après avoir soumis leur réponse finale.</span>
                         </div>
                         <textarea name="pi-correct-rationale" id="pi-correct-rationale" ng-model="esc.data.correct_rationale.text" ng-model-options="{ debounce: 500 }" required></textarea>

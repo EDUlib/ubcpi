@@ -66,7 +66,7 @@
 
                     <legend>
                         <span class="ubcpi-legend-instruction" ng-if="rc.status() == rc.ALL_STATUS.NEW">Étape 1) Votre réponse initiale <span class="inline-hint">Vous pouvez changer votre réponse plus tard, si vous changez d'idée.</span></span>
-                        <span class="ubcpi-legend-instruction" ng-if="rc.status() == rc.ALL_STATUS.ANSWERED">Étape 3) Votre réponse finale <span class="inline-hint">Vous avez maintenant la possibilité de changer votre sélection initiale et explication.</span></span>
+                        <span class="ubcpi-legend-instruction" ng-if="rc.status() == rc.ALL_STATUS.ANSWERED">Étape 3) Votre réponse finale <span class="inline-hint">Vous avez maintenant la possibilité de changer votre sélection initiale et votre explication.</span></span>
                     </legend>
 
                     <div class="ubcpi-possible-options">
@@ -80,7 +80,7 @@
 
                                 <img ng-src="{{option.image_url}}" id="original-option-image-{{ $index }}" alt="{{option.image_alt}}" ng-if="option.image_position == 'below' && option.image_url" />
 
-                                <span class="chosen-option option-details-text" ng-if="rc.answer_original == $index && rc.status() == rc.ALL_STATUS.ANSWERED">(You chose this option)</span>
+                                <span class="chosen-option option-details-text" ng-if="rc.answer_original == $index && rc.status() == rc.ALL_STATUS.ANSWERED">(Vous avez choisi cette option)</span>
                             </label>
                         </p>
                     </div>
@@ -105,9 +105,9 @@
                             <i aria-hidden="true" class="icon fa fa-warning"></i>&nbsp;Note:
                             <span ng-if="answerForm.rationale.$error.minlength">Votre raisonnement doit avoir un minimum de {{rationale_size.min}} caractères.</span>
                             <span ng-if="answerForm.rationale.$error.maxlength">Votre raisonnement doit avoir un maximum de {{rationale_size.max}} caractères.</span>
-                            <span ng-if="answerForm.rationale.$invalid && answerForm.q.$valid">Afin de passer à l'étape suivante expliquez brièvement pourquoi avoir choisi cette réponse.</span>
-                            <span ng-if="answerForm.rationale.$valid && answerForm.q.$invalid">Afin de passer à l'étape suivante svp choisissez une réponse.</span>
-                            <span ng-if="answerForm.q.$invalid && answerForm.rationale.$invalid">Afin de passer à l'étape suivante svp choisissez une réponse et brièvement expliquer votre choix.</span>
+                            <span ng-if="answerForm.rationale.$invalid && answerForm.q.$valid">Afin de passer à l'étape suivante, expliquez brièvement pourquoi vous avez choisi cette réponse.</span>
+                            <span ng-if="answerForm.rationale.$valid && answerForm.q.$invalid">Afin de passer à l'étape suivante, svp choisissez une réponse.</span>
+                            <span ng-if="answerForm.q.$invalid && answerForm.rationale.$invalid">Afin de passer à l'étape suivante, svp choisissez une réponse brièvement et expliquez votre choix.</span>
                         </p>
                     </div>
                 </div>
@@ -204,7 +204,7 @@
                                 <span class="sr">Raisonnement de l'étudiant</span><i aria-hidden="true" class="icon fa fa-user"></i><span class="ubcpi-solution-your-final-rationale ubcpi-solution-rationales">"{{rc.rationale_revised}}"</span>
                             </li>
                         </ul>
-                        <p>Voici comment vos collègues de classe ont répondu à cette question <a href="#classbreakdown">ci-dessous</a></p>
+                        <p>Voyez comment vos collègues de classe ont répondu à cette question <a href="#classbreakdown">ci-dessous</a></p>
 
                     </div>
                 </div><!-- .detailed-solution -->
@@ -215,7 +215,7 @@
 
                 <a name="classbreakdown"></a>
                 <h3 class="ubcpi-class-breakdown-head">Répartition des réponses de la classe</h3>
-                <p>Voici comment vos collègues de classe ont répondu à cette question dans les rondes initiale et finale.</p>
+                <p>Voyez comment vos collègues de classe ont répondu à cette question dans les rondes initiale et finale.</p>
                 <h4>Choix de réponses</h4>
                 <div class="ubcpi-breakdown-answer-options">
 
