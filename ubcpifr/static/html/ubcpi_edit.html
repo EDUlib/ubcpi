@@ -39,7 +39,7 @@
                         <textarea class="input setting-input" name="question_text" id="pi-question-text" ng-model="esc.data.question_text.text" ng-model-options="{ debounce: 500 }"></textarea>
 
                         <div class="add-image-inputs" ng-if="esc.data.question_text.image_show_fields">
-                        	<label class="label setting-label pi-setting-label" for="question-text-image-url">Image URL<br /><span class="tip setting-help">Téléversez un fichier en utilisant Contenu > Fichiers &amp; téléversements. Copiez ensuite le 'URL Studio' résultant dans le champ texte ici.</span></label>
+                        	<label class="label setting-label pi-setting-label" for="question-text-image-url">URL de l'image<br /><span class="tip setting-help">Téléversez un fichier en utilisant Contenu > Fichiers &amp; téléversements. Copiez ensuite le 'URL Studio' résultant dans le champ texte ici.</span></label>
                         	<input type="text" name="question-text-image-url" id="question-text-image-url" class="input setting-input pi-options image-input-url" ng-model="esc.data.question_text.image_url" ng-model-options="{ debounce: 500 }" required/> <br />
                         	<label class="label setting-label pi-setting-label" for="question-text-image-position">Position de l'image<br /><span class="tip setting-help">Choisissez si l'image doit apparaitre au-dessus ou au-dessous du texte de la question.</span></label>
                         	<select name="question-text-image-position" id="question-text-image-position" ng-model="esc.data.question_text.image_position" ng-options="position as desc for (position, desc) in esc.image_position_locations"></select><br />
@@ -123,7 +123,7 @@
                     <div class="wrapper-comp-setting pi-wrapper-comp-setting">
                         <div class="pi-label-and-hint">
                             <label class="label setting-label pi-setting-label" for="pi-algo" aria-describedby="pi-algo-tip">Réponses visibles aux étudiants - Logique de sélection</label>
-                            <span id="pi-algo-tip" class="tip setting-help">"Simple" signifie que les exemples de réponses sont intentionnellement choisies quand les étudiants voient les réponses de leurs pairs.<br />"Random" signifie que les exemples sont choisis de manière aléatoire et peuvent ne pas include différents choix de réponses.</span>
+                            <span id="pi-algo-tip" class="tip setting-help">"Simple" signifie que les exemples de réponses sont intentionnellement choisies quand les étudiants voient les réponses de leurs pairs.<br />"Random" signifie que les exemples sont choisis de manière aléatoire et peuvent ne pas inclure différents choix de réponses.</span>
                         </div>
                         <select name="pi-algo" id="pi-algo" ng-model="esc.data.algo.name" ng-options="algo as algo for (algo, desc) in esc.algos" required></select>
                     </div>
