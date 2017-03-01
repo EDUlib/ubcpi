@@ -205,7 +205,7 @@ def parse_from_xml(root):
     """
 
     # Check that the root has the correct tag
-    if root.tag != 'ubcpi':
+    if root.tag != 'ubcpien':
         raise UpdateFromXmlError('Every peer instruction tool must contain an "ubcpi" element.')
 
     display_name_el = root.find('display_name')
@@ -317,7 +317,7 @@ def serialize_to_xml(root, block):
         etree.Element
 
     """
-    root.tag = 'ubcpi'
+    root.tag = 'ubcpien'
 
     if block.rationale_size is not None:
         if block.rationale_size.get('min'):
