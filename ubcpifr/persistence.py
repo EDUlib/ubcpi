@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 from submissions import api as sub_api
 

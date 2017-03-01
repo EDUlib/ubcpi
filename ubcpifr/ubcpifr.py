@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
+# -*- coding: utf-8 -*-
 
 """A Peer Instruction tool for edX by the University of British Columbia."""
 import os
