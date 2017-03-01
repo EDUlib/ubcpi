@@ -66,7 +66,7 @@ def validate_options(options):
             and int(options['rationale_size']['max']) <= int(options['rationale_size']['min']):
         errors += ['Minimum Characters', 'Maximum Characters']
     if options['algo']['num_responses'] != '#' and int(options['algo']['num_responses']) < 0:
-        errors.append('Nombre de réponses')
+        errors.append(u'Nombre de réponses')
 
     if not errors:
         return None
@@ -183,12 +183,10 @@ class ubcpifrXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     display_name = String(default=_("Enseignement par les pairs"))
 
     question_text = Dict(
-        default={'text': _('<p>La majorité de la masse d\'un arbre mûr provient de?</p>'),
+        default={'text': u'<p>La majorité de la masse d\'un arbre mûr provient de?</p>',
                  'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''},
         scope=Scope.content,
-        help=_("La question que les étudiants voient. Cette question apparait au-dessus des réponses possibles que vous ajouterez plus bas. "
-             "Vous pouvez utiliser du texte, une image ou une combinaison des deux. Si vous désirez ajouter une image à votre question, appuyez sur "
-             "le bouton 'Ajouter une image'.")
+        help=u'La question que les étudiants voient. Cette question apparait au-dessus des réponses possibles que vous ajouterez plus bas. Vous pouvez utiliser du texte, une image ou une combinaison des deux. Si vous désirez ajouter une image à votre question, appuyez sur le bouton \'Ajouter une image\'.'
     )
 
     options = List(
@@ -198,36 +196,36 @@ class ubcpifrXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
             {'text': _('Eau'), 'image_url': '', 'image_position': 'below', 'image_show_fields': 0, 'image_alt': ''}
         ],
         scope=Scope.content,
-        help="Les choix de réponses possibles que peuvent choisir les étudiants",
+        help=u'Les choix de réponses possibles que peuvent choisir les étudiants',
     )
 
     rationale_size = Dict(
         default={'min': 1, 'max': MAX_RATIONALE_SIZE}, scope=Scope.content,
-        help=_("Le nombre minimum et maximum de caractères pouvant être utilisé pour le raisonnement étudiant."),
+        help=u'Le nombre minimum et maximum de caractères pouvant être utilisé pour le raisonnement étudiant.',
     )
 
     correct_answer = Integer(
         default=0, scope=Scope.content,
-        help=_("La bonne réponse pour cette question"),
+        help=u'La bonne réponse pour cette question',
     )
 
     correct_rationale = Dict(
-        default={'text': _("Photosynthèse")}, scope=Scope.content,
-        help=_("La rétroaction de l'étudiant pour la bonne réponse"),
+        default={'text': u'Photosynthèse'}, scope=Scope.content,
+        help=u'La rétroaction de l\'étudiant pour la bonne réponse',
     )
 
     stats = Dict(
         default={'original': {}, 'revised': {}}, scope=Scope.user_state_summary,
-        help=_("Statistiques globales pour l'enseignant"),
+        help=u'Statistiques globales pour l\'enseignant',
     )
     seeds = List(
         default=[
-            {'answer': 0, 'rationale': _('L\'arbre obtient le carbone de l\'air.')},
-            {'answer': 1, 'rationale': _('L\'arbre obtient les minéraux du sol.')},
-            {'answer': 2, 'rationale': _('L\'arbre boit de l\'eau.')}
+            {'answer': 0, 'rationale': u'L\'arbre obtient le carbone de l\'air.'},
+            {'answer': 1, 'rationale': u'L\'arbre obtient les minéraux du sol.'},
+            {'answer': 2, 'rationale': u'L\'arbre boit de l\'eau.'}
         ],
         scope=Scope.content,
-        help=_("Exemples configurés par enseignant afin de donner aux étudiants lors de étape de révision."),
+        help=u'Exemples configurés par enseignant afin de donner aux étudiants lors de étape de révision.',
     )
 
     # sys_selected_answers dict format:
@@ -241,12 +239,12 @@ class ubcpifrXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     # }
     sys_selected_answers = Dict(
         default={}, scope=Scope.user_state_summary,
-        help=_("Réponses sélectionnées par le système afin de donner aux étudiants lors de étape de révision."),
+        help=u'Réponses sélectionnées par le système afin de donner aux étudiants lors de étape de révision.',
     )
 
     algo = Dict(
         default={'name': 'simple', 'num_responses': '#'}, scope=Scope.content,
-        help=_("Algorithme pour sélectionner quelles réponses à présenter aux étudiants"),
+        help=u'Algorithme pour sélectionner quelles réponses à présenter aux étudiants',
     )
 
     # Declare that we are not part of the grading System. Disabled for now as for the concern about the loading
@@ -266,10 +264,8 @@ class ubcpifrXBlock(XBlock, MissingDataFetcherMixin, PublishEventMixin):
     # required field for LMS progress page
     weight = Float(
         default=1,
-        display_name=_("Poids de l'exercice"),
-        help=_(("Définit le nombre de points pour chaque exercice. "
-              "Si non défini, l'exercice vaut la somme de toutes "
-              "les valeurs de points.")),
+        display_name= u'Poids de l\'exercice',
+        help=u'Définit le nombre de points pour chaque exercice. Si non défini, l\'exercice vaut la somme de toutes les valeurs de points.',
         values={"min": 0, "étape": .1},
         scope=Scope.settings
     )
