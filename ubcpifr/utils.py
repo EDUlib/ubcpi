@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
-#
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 
 
 # Make '_' a no-op so we can scrape strings

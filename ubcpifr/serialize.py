@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 from lxml import etree
 
 IMAGE_ATTRIBUTES = {'position': 'image_position', 'show_fields': 'image_show_fields', 'alt': 'image_alt'}
